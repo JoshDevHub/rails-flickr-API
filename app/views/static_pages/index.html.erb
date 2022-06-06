@@ -1,0 +1,7 @@
+<h1>Hello World</h1>
+
+<%= form_with url: root_path, method: :get do |form| %>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id, class: "border border-1" %>
+  <%= form.submit "Find Photos", class: "border border-1 border-black p-2" %>
+<% end %>
