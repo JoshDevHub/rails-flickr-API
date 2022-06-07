@@ -1,13 +1,19 @@
-<h1>Hello World</h1>
+<h1 class="font-bold text-2xl m-4 text-neutral-800">Search your Flickr User ID</h1>
 
-<%= form_with url: root_path, method: :get do |form| %>
-  <%= form.label :user_id %>
-  <%= form.text_field :user_id, class: "border border-1" %>
-  <%= form.submit "Find Photos", class: "border border-1 border-black p-2" %>
+<%= form_with url: root_path, method: :get, html: { class: "m-4 mb-8"} do |form| %>
+  <%= form.label :user_id, class: "hidden" %>
+  <%= form.text_field :user_id, placeholder: "user id",class: "border border-1 py-1 pl-2 mr-4" %>
+  <%= form.submit "Find Photos",
+                  class: "border-2 border-transparent px-2 py-1 rounded-md bg-red-300
+                          font-bold hover:bg-transparent hover:border-red-300
+                          hover:cursor-pointer text-neutral-800" %>
 <% end %>
 
-<% if @photos_json.any? %>
-  <% @photos_json.each do |json| %>
-    <%= image_tag Flickr.url_m(json) %>
-  <% end %>
+<% if @photos_json.present? %>
+  <h2 class="font-bold m-4 flex-wrap text-xl text-neutral-800">Your Photos:</h2>
+  <div class="flex gap-4 mx-12">
+    <% @photos_json.each do |json| %>
+      <%= image_tag Flickr.url_m(json), { class: "border-4 border-red-300 rounded-md" } %>
+    <% end %>
+  </div>
 <% end %>
