@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    @photos = FlickrService.call(params[:user_id])
+    @photos = FlickrService.fetch_photos_for(params[:user_id])
   end
 end
