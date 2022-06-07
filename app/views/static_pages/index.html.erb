@@ -5,3 +5,9 @@
   <%= form.text_field :user_id, class: "border border-1" %>
   <%= form.submit "Find Photos", class: "border border-1 border-black p-2" %>
 <% end %>
+
+<% if @photos_json.any? %>
+  <% @photos_json.each do |json| %>
+    <%= image_tag Flickr.url_m(json) %>
+  <% end %>
+<% end %>
