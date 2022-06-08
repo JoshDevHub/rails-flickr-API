@@ -21,4 +21,6 @@
       <%= image_tag Flickr.url_m(json), { class: "border-4 border-red-300 rounded-md" } %>
     <% end %>
   </div>
+<% elsif request.query_string.present? %>
+  <p class="text-red-700 font-bold">- No photos found. Search again -</p>
 <% end %>
