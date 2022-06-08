@@ -1,5 +1,10 @@
 <h1 class="font-bold text-2xl m-4 text-neutral-800">Search your Flickr User ID</h1>
 
+<div class="ml-4">
+  <p>To find your user id, visit your profile and copy the final part of the URL</p>
+  <p><span class="font-bold">For example:</span> https://www.flickr.com/photos/<mark>195793072@N07</mark></p>
+</div>
+
 <%= form_with url: root_path, method: :get, html: { class: "m-4 mb-8"} do |form| %>
   <%= form.label :user_id, class: "hidden" %>
   <%= form.text_field :user_id, placeholder: "user id",class: "border border-1 py-1 pl-2 mr-4" %>
